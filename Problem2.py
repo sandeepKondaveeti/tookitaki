@@ -61,8 +61,8 @@ class Graph():
 
 df = pd.read_csv("data_Problem2.csv", index_col=False)
 df.dropna(inplace=True)
-vertices = int(max(df['TO_NODE']))
-g = Graph(len(df['FROM_NODE'].unique()))
+vertices = len(df['FROM_NODE'].unique())
+g = Graph(vertices)
 
 for i in range (0, len(df['FROM_NODE'])):
     g.addEdge(df['FROM_NODE'][i], df['TO_NODE'][i], df['VALUE'][i])
